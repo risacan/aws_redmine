@@ -38,8 +38,7 @@ package "httpd-devel"
 # yum -y install ImageMagick ImageMagick-devel ipa-pgothic-fonts
 package "ImageMagick"
 package "ImageMagick-devel"
-package "ipa-pgothic-fonts"
-__END__
+
 # ruby
 
 %w(
@@ -55,3 +54,4 @@ execute "cd ruby-2.3.3"
 execute "./configure --disable-install-doc"
 execute "make"
 execute "make install"
+__END__

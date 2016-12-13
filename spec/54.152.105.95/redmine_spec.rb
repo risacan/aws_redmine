@@ -79,13 +79,12 @@ end
 %w(
   ImageMagick
   ImageMagick-devel
-  ipa-pgothic-fonts
 ).each do |pkg|
   describe package(pkg) do
     it { should be_installed }
   end
 end
-__END__
+
 # rubyのインストール
 # yum -y install gdbm-devel epel-release
 %w(
@@ -101,7 +100,7 @@ describe command("ruby -v") do
   let(:disable_sudo) { true }
   its(:stdout) { should match /ruby 2\.3\.3p.+/ }
 end
-
+__END__
 describe file("/var/lib/pgsql/data/pg_hba.conf") do
   its(:content) { should match /host    redmine         redmine         127.0.0.1\/32            md5/ }
   its(:content) { should match /host    redmine         redmine         ::1\/128                 md5/ }
@@ -140,3 +139,4 @@ end
 describe file('/etc/httpd/conf/httpd.conf') do
   its(:content) { should match /DocumentRoot \"\/var\/lib\/redmine\/public\"/ }
 end
+
