@@ -100,6 +100,7 @@ describe command("ruby -v") do
   let(:disable_sudo) { true }
   its(:stdout) { should match /ruby 2\.3\.3p.+/ }
 end
+
 __END__
 describe file("/var/lib/pgsql/data/pg_hba.conf") do
   its(:content) { should match /host    redmine         redmine         127.0.0.1\/32            md5/ }
