@@ -51,7 +51,11 @@ end
 execute "curl -O https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz"
 execute "tar xvf ruby-2.3.3.tar.gz"
 execute "cd ruby-2.3.3"
-execute "./configure --disable-install-doc"
+execute "/home/ec2-user/ruby-2.3.3/configure --disable-install-doc"
 execute "make"
 execute "make install"
+execute "/usr/local/bin/gem install bundler"
+
+# /usr/local/bin/ruby こっち
+# /usr/local/bin/bundle こっち
 __END__
