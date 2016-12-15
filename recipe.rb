@@ -55,19 +55,21 @@ execute "/home/ec2-user/ruby-2.3.3/configure --disable-install-doc"
 execute "make"
 execute "make install"
 execute "/usr/local/bin/gem install bundler"
-execute "postgresql-setup initdb"
 execute "sudo /sbin/service postgresql initdb"
 
 # postgresとRedmineつなげる
 remote_file "/var/lib/pgsql9/data/pg_hba.conf" do
-  owner "root"
-  group "root"
+  owner "postgres"
+  group "postgres"
   source "./files/var/lib/pgsql9/data/pg_hba.conf"
 end
 
+execute "sudo /sbin/service postgresql start"
+execute "sudo /sbin/service postgresql restart"
 
-execute "/sbin/service postgresql start"
-execute "/sbin/service postgresql restart"
+execute "sudo /sbin/chkconfig postgresql on"
 # /usr/local/bin/ruby こっち
 # /usr/local/bin/bundle こっち
+
+
 __END__

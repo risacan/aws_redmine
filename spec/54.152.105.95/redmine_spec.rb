@@ -101,8 +101,7 @@ describe command("ruby -v") do
   its(:stdout) { should match /ruby 2\.3\.3p.+/ }
 end
 
-__END__
-describe file("/var/lib/pgsql/data/pg_hba.conf") do
+describe file("/var/lib/pgsql9/data/pg_hba.conf") do
   its(:content) { should match /host    redmine         redmine         127.0.0.1\/32            md5/ }
   its(:content) { should match /host    redmine         redmine         ::1\/128                 md5/ }
 end
@@ -111,7 +110,7 @@ describe service("postgresql") do
   it { should be_running }
   it { should be_enabled }
 end
-
+__END__
 describe file("/var/lib/redmine/config/database.yml") do
   it { should exist }
 end
